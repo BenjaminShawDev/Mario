@@ -1,0 +1,44 @@
+#include "CharacterMario.h"
+
+CharacterMario::CharacterMario(SDL_Renderer* renderer, string imagePath, Vector2D startPosition, LevelMap* map) : Character(renderer, imagePath, startPosition, map)
+{
+
+}
+
+CharacterMario::~CharacterMario()
+{
+	
+}
+
+void CharacterMario::Update(float deltaTime, SDL_Event e)
+{
+	switch (e.type)
+	{
+	case SDL_KEYDOWN:
+		switch (e.key.keysym.sym)
+		{
+		case SDLK_a:
+			mMovingRight = false;
+			mMovingLeft = true;
+			break;
+		case SDLK_d:
+			mMovingLeft = false;
+			mMovingRight = true;
+			break;
+		case SDLK_SPACE:
+			Character::Jump();
+		}
+		break;
+	case SDL_KEYUP:
+		switch (e.key.keysym.sym)
+		{
+		case SDLK_a:
+			mMovingLeft = false;
+			break;
+		case SDLK_d:
+			mMovingRight = false;
+			break;
+		}
+	}
+	Character::Update(deltaTime, e);
+}

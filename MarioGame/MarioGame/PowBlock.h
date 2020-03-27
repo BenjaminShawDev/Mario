@@ -1,0 +1,22 @@
+#pragma once
+#include "GameScreenLevel1.h"
+
+class PowBlock
+{
+public:
+	PowBlock(SDL_Renderer* renderer, LevelMap* map);
+	~PowBlock();
+	void Render();
+	Rect2D GetCollisionBox() { return Rect2D(mPosition.x - 32, mPosition.y, mTexture->GetWidth(), mTexture->GetHeight()); }
+	void TakeAHit();
+	bool IsAvailable() { return mNumberOfHitsLeft > 0; }
+private:
+	SDL_Renderer* mRenderer;
+	Vector2D mPosition;
+	Texture2D* mTexture;
+	LevelMap* mLevelMap;
+
+	float mSingleSpriteWidth;
+	float mSingleSpriteHeight;
+	int mNumberOfHitsLeft;
+};
