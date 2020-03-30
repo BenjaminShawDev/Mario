@@ -3,6 +3,7 @@
 #define _GAMESCREENLEVEL1_H
 
 #include <SDL.h>
+#include <SDL_mixer.h>
 #include "Commons.h"
 #include "GameScreen.h"
 #include "Character.h"
@@ -27,6 +28,9 @@ private:
 	CharacterLuigi* myCharacter2;
 	LevelMap* mLevelMap;
 	PowBlock* mPowBlock;
+	Mix_Chunk* gCoin;
+	Mix_Chunk* gPOWBlock;
+	Mix_Chunk* gPlayerDeath;
 
 	bool SetUpLevel();
 
@@ -34,7 +38,6 @@ private:
 	float mScreenShakeTime;
 	float mWobble;
 	float mBackgroundYPos;
-	int respawnTime;
 	int coinsCollected;
 	vector<CharacterKoopa*> mEnemies;
 	vector<Coins*> mCoins;
@@ -51,6 +54,7 @@ public:
 	void CreateKoopa(Vector2D position, FACING direction, float speed);
 	void UpdateCoins(float deltaTime, SDL_Event e);
 	void CreateCoins(Vector2D position);
+	void SoundEffects(string path);
 };
 
 #endif // !_GAMESCREENLEVEL1_H

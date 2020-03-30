@@ -27,6 +27,7 @@ void CharacterMario::Update(float deltaTime, SDL_Event e)
 			break;
 		case SDLK_SPACE:
 			Character::Jump();
+			SoundEffect("Music/MarioJump.wav");
 		}
 		break;
 	case SDL_KEYUP:

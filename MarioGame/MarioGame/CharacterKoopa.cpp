@@ -8,7 +8,8 @@ CharacterKoopa::CharacterKoopa(SDL_Renderer* renderer, string imagePath, LevelMa
 
 	mInjured = false;
 
-	mSingleSpriteWidth = mTexture->GetWidth() / 2; //2 sprites on this spritesheet in 1 row
+	//mSingleSpriteWidth = mTexture->GetWidth() / 2; //2 sprites on this spritesheet in 1 row
+	mSingleSpriteWidth = 32;
 	mSingleSpriteHeight = mTexture->GetHeight();
 }
 
@@ -76,7 +77,7 @@ void CharacterKoopa::Render()
 	int left = 0.0f;
 	//If injured move the left position to be the left poisition on the second spritesheet
 	if (mInjured)
-		left = mSingleSpriteHeight;
+		left = mSingleSpriteWidth;
 	//Get the portion of the spritesheet you want to draw
 	SDL_Rect portionOfSpriteSheet = { left, 0, mSingleSpriteWidth, mSingleSpriteHeight };
 	//Determine where you want it drawn

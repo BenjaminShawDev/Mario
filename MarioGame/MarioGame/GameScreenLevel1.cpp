@@ -17,8 +17,6 @@ GameScreenLevel1::~GameScreenLevel1()
 	delete myCharacter1;
 	myCharacter1 = NULL;
 
-	
-
 	delete myCharacter2;
 	myCharacter2 = NULL;
 
@@ -115,7 +113,7 @@ bool GameScreenLevel1::SetUpLevel()
 	//Set up the player character
 	myCharacter1 = new CharacterMario(mRenderer, "Images/Mario.png", Vector2D(64, 330), mLevelMap);
 	myCharacter2 = new CharacterLuigi(mRenderer, "Images/Luigi.png", Vector2D(416, 330), mLevelMap);
-	if (!mBackgroundTexture->LoadFromFile("Images/BackgroundMB.png"))
+	if (!mBackgroundTexture->LoadFromFile("Images/Level1Background.png"))
 	{
 		cout << "Failed to load background texture" << endl;;
 		return false;
@@ -152,11 +150,12 @@ void GameScreenLevel1::UpdatePowBlock()
 				DoScreenShake();
 				mPowBlock->TakeAHit();
 				myCharacter1->CancelJump();
+				SoundEffects("Music/POWBlock.wav");
 			}
 		}
 	}
 
-	else if (Collisions::Instance()->Box(mPowBlock->GetCollisionBox(), myCharacter2->GetCollisionBox()))
+	if (Collisions::Instance()->Box(mPowBlock->GetCollisionBox(), myCharacter2->GetCollisionBox()))
 	{
 		if (mPowBlock->IsAvailable())
 		{
@@ -165,6 +164,7 @@ void GameScreenLevel1::UpdatePowBlock()
 				DoScreenShake();
 				mPowBlock->TakeAHit();
 				myCharacter2->CancelJump();
+				SoundEffects("Music/POWBlock.wav");
 			}
 		}
 	}
@@ -211,10 +211,12 @@ void GameScreenLevel1::UpdateEnemies(float deltaTime, SDL_Event e)
 			{
 				if (Collisions::Instance()->Circle(mEnemies[i], myCharacter1))
 				{
+					SoundEffects("Music/PlayerDeath.wav");
 					myCharacter1->SetPosition(myCharacter1->CharacterRespawn());
 				}
 				if (Collisions::Instance()->Circle(mEnemies[i], myCharacter2))
 				{
+					SoundEffects("Music/PlayerDeath.wav");
 					myCharacter2->SetPosition(myCharacter2->CharacterRespawn());
 				}
 			}
@@ -256,12 +258,14 @@ void GameScreenLevel1::UpdateCoins(float deltaTime, SDL_Event e)
 					mCoins[i]->SetAlive(false);
 					coinsCollected += 1;
 					cout << "Coins: " << coinsCollected << endl;
+					SoundEffects("Music/Coin.wav");
 				}
 				if (Collisions::Instance()->Circle(mCoins[i], myCharacter2))
 				{
 					mCoins[i]->SetAlive(false);
 					coinsCollected += 1;
 					cout << "Coins: " << coinsCollected << endl;
+					SoundEffects("Music/Coin.wav");
 				}
 			}
 
@@ -280,7 +284,7 @@ void GameScreenLevel1::UpdateCoins(float deltaTime, SDL_Event e)
 
 void GameScreenLevel1::CreateKoopa(Vector2D position, FACING direction, float speed)
 {
-	CharacterKoopa* koopaCharacter = new CharacterKoopa(mRenderer, "Images/Koopa.png", mLevelMap, position, direction, speed);
+	CharacterKoopa* koopaCharacter = new CharacterKoopa(mRenderer, "Images/KoopaTest.png", mLevelMap, position, direction, speed);
 	mEnemies.push_back(koopaCharacter);
 }
 
@@ -288,4 +292,41 @@ void GameScreenLevel1::CreateCoins(Vector2D position)
 {
 	Coins* coin = new Coins(mRenderer, "Images/Coin.png", mLevelMap, position);
 	mCoins.push_back(coin);
+}
+
+void GameScreenLevel1::SoundEffects(string path)
+{
+	gCoin = Mix_LoadWAV(path.c_str());
+	gPOWBlock = Mix_LoadWAV(path.c_str());
+	gPlayerDeath = Mix_LoadWAV(path.c_str());
+
+	if (gCoin == NULL)
+	{
+		cout << "Failed to load coin sound effect! Error: " << Mix_GetError() << endl;
+	}
+
+	else
+	{
+		Mix_PlayChannel(-1, gCoin, 0);
+	}
+
+	if (gPOWBlock == NULL)
+	{
+		cout << "Failed to load POW sound effect! Error: " << Mix_GetError() << endl;
+	}
+
+	else 
+	{
+		Mix_PlayChannel(-1, gPOWBlock, 0);
+	}
+
+	if (gPlayerDeath == NULL)
+	{
+		cout << "Failed to load player death sound effect! Error: " << Mix_GetError() << endl;
+	}
+
+	else
+	{
+		Mix_PlayChannel(-1, gPlayerDeath, 0);
+	}
 }

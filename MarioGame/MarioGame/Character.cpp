@@ -147,3 +147,17 @@ void Character::SetAlive(bool isAlive)
 	alive = isAlive;
 }
 
+void Character::SoundEffect(string path)
+{
+	gSoundEffect = Mix_LoadWAV(path.c_str());
+
+	if (gSoundEffect == NULL)
+	{
+		cout << "Failed to loud sound effect! Error: " << Mix_GetError() << endl;
+	}
+
+	else if (mCanJump == false)
+	{
+		Mix_PlayChannel(-1, gSoundEffect, 0);
+	}
+}

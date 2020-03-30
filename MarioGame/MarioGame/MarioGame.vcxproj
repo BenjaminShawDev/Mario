@@ -132,6 +132,7 @@
     <ClCompile Include="Coins.cpp" />
     <ClCompile Include="Collisions.cpp" />
     <ClCompile Include="GameScreen.cpp" />
+    <ClCompile Include="GameScreenLevel0.cpp" />
     <ClCompile Include="GameScreenLevel1.cpp" />
     <ClCompile Include="GameScreenManager.cpp" />
     <ClCompile Include="LevelMap.cpp" />
@@ -155,6 +156,7 @@
     <ClInclude Include="Commons.h" />
     <ClInclude Include="Constants.h" />
     <ClInclude Include="GameScreen.h" />
+    <ClInclude Include="GameScreenLevel0.h" />
     <ClInclude Include="GameScreenLevel1.h" />
     <ClInclude Include="GameScreenManager.h" />
     <ClInclude Include="LevelMap.h" />

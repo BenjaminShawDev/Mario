@@ -1,6 +1,6 @@
 #include "LevelMap.h"
 
-//0 = Empty area, 1 = Blocked area
+//0 = Empty area, 1 = Blocked area, 2 = POW block
 
 LevelMap::LevelMap(int map[MAP_HEIGHT][MAP_WIDTH])
 {

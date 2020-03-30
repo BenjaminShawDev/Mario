@@ -28,7 +28,7 @@ int main(int argc, char* args[])
 	//Check if SDL was set up correctly
 	if (InitSDL())
 	{
-		//Set up the game screen manager - Start with Level1
+		//Set up the game screen manager - Start with Level1 ***
 		gameScreenManager = new GameScreenManager(gRenderer, SCREEN_LEVEL1);
 		LoadMusic("Music/Mario.mp3");
 		gOldTime = SDL_GetTicks();

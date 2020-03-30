@@ -1,5 +1,6 @@
 #pragma once
 #include <SDL.h>
+#include <SDL_mixer.h>
 #include <iostream>
 #include "Commons.h"
 #include <string>
@@ -51,8 +52,11 @@ public:
 	void SetAlive(bool isAlive);
 	bool GetAlive() { return alive; }
 
+	void SoundEffect(string path);
+
 	Vector2D CharacterRespawn() { return mRespawnPosition; }
 
 private:
 	LevelMap* mCurrentLevelMap;
+	Mix_Chunk* gSoundEffect = NULL;
 };
