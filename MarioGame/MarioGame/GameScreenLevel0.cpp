@@ -1,4 +1,5 @@
 #include "GameScreenLevel0.h"
+#include "QuestionBlock.h"
 
 GameScreenLevel0::GameScreenLevel0(SDL_Renderer* renderer) : GameScreen(renderer)
 {
@@ -16,6 +17,11 @@ GameScreenLevel0::~GameScreenLevel0()
 
 	delete myCharacter2;
 	myCharacter2 = NULL;
+
+	delete mQuestionBlock;
+	mQuestionBlock = NULL;
+
+	mGoombas.clear();
 }
 
 void GameScreenLevel0::Render()
@@ -25,6 +31,12 @@ void GameScreenLevel0::Render()
 
 	myCharacter1->Render();
 	myCharacter2->Render();
+	mQuestionBlock->Render();
+
+	for (unsigned int i = 0; i < mGoombas.size(); i++)
+	{
+		mGoombas[i]->Render();
+	}
 
 	//Draw coins
 	for (unsigned int i = 0; i < mCoins.size(); i++)
@@ -35,9 +47,11 @@ void GameScreenLevel0::Render()
 
 void GameScreenLevel0::Update(float deltaTime, SDL_Event e)
 {
+	UpdateQuestionBlock(deltaTime);
 	myCharacter1->Update(deltaTime, e);
 	myCharacter2->Update(deltaTime, e);
 
+	UpdateGoomba(deltaTime, e);
 	UpdateCoins(deltaTime, e);
 }
 
@@ -50,13 +64,13 @@ void GameScreenLevel0::SetLevelMap()
 										{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 										{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 										{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+										{0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
 										{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 										{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+										{0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
 										{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 										{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-										{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-										{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-										{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1} };
+										{1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1} };
 
 	//Clear up any old map
 	if (mLevelMap != NULL)
@@ -77,31 +91,90 @@ bool GameScreenLevel0::SetUpLevel()
 	// Set up the player character
 	myCharacter1 = new CharacterMario(mRenderer, "Images/Mario.png", Vector2D(64, 330), mLevelMap);
 	myCharacter2 = new CharacterLuigi(mRenderer, "Images/Luigi.png", Vector2D(32, 330), mLevelMap);
-	if (!mBackgroundTexture->LoadFromFile("Images/Level0Background.png"))
+	if (!mBackgroundTexture->LoadFromFile("Images/Level0BackgroundTest.png"))
 	{
 		cout << "Failed to load background texture" << endl;
 		return false;
 	}
 
+	mQuestionBlock = new QuestionBlock(mRenderer, mLevelMap);
+
 	//Set up enemies and coins
-	CreateCoins(Vector2D(200, 350));
-	CreateCoins(Vector2D(220, 350));
-	CreateCoins(Vector2D(240, 350));
-	CreateCoins(Vector2D(260, 350));
-	CreateCoins(Vector2D(280, 350));
+	CreateGoomba(Vector2D(260, 240), FACING_LEFT, MOVEMENT_SPEED);
+
+	CreateCoins(Vector2D(203, 260));
+	CreateCoins(Vector2D(233, 260));
+	CreateCoins(Vector2D(263, 260));
+	CreateCoins(Vector2D(293, 260));
 	coinsCollected = 0;
 
 	return true;
 }
 
-void GameScreenLevel0::UpdateEnemies()
+void GameScreenLevel0::UpdateQuestionBlock(float deltaTime)
 {
+	mQuestionBlock->Update(deltaTime);
+	if (Collisions::Instance()->Box(mQuestionBlock->GetCollisionBox(), myCharacter1->GetCollisionBox()))
+	{
+		if (mQuestionBlock->IsAvailable())
+		{
+			mQuestionBlock->TakeAHit();
+			myCharacter1->CancelJump();
+		}
+	}
 
+	if (Collisions::Instance()->Box(mQuestionBlock->GetCollisionBox(), myCharacter2->GetCollisionBox()))
+	{
+		if (mQuestionBlock->IsAvailable())
+		{
+			mQuestionBlock->TakeAHit();
+			myCharacter2->CancelJump();
+		}
+	}
 }
 
-void GameScreenLevel0::CreateKoopa(Vector2D position, FACING direction)
+void GameScreenLevel0::CreateGoomba(Vector2D position, FACING direction, float speed)
 {
+	CharacterGoomba* goombaCharacter = new CharacterGoomba(mRenderer, "Images/Goomba.png", mLevelMap, position, direction, speed);
+	mGoombas.push_back(goombaCharacter);
+}
 
+void GameScreenLevel0::UpdateGoomba(float deltaTime, SDL_Event e)
+{
+	if (!mGoombas.empty())
+	{
+		int enemyIndexToDelete = -1;
+		for (unsigned int i = 0; i < mGoombas.size(); i++)
+		{
+			mGoombas[i]->Update(deltaTime, e);
+
+			if ((mGoombas[i]->GetPosition().y > 300.0f || mGoombas[i]->GetPosition().y <= 0.0f) && (mGoombas[i]->GetPosition().x <= -32.0f || mGoombas[i]->GetPosition().x > SCREEN_WIDTH))
+			{
+				mGoombas[i]->SetAlive(false);
+			}
+			else
+			{
+				if (Collisions::Instance()->Circle(mGoombas[i], myCharacter1))
+				{
+					myCharacter1->SetPosition(myCharacter1->CharacterRespawn());
+				}
+				if (Collisions::Instance()->Circle(mGoombas[i], myCharacter2))
+				{
+					myCharacter2->SetPosition(myCharacter2->CharacterRespawn());
+				}
+			}
+
+			if (!mGoombas[i]->GetAlive())
+			{
+				enemyIndexToDelete = i;
+			}
+		}
+
+		if (enemyIndexToDelete != -1)
+		{
+			mGoombas.erase(mGoombas.begin() + enemyIndexToDelete);
+		}
+	}
 }
 
 void GameScreenLevel0::CreateCoins(Vector2D position)
@@ -117,7 +190,6 @@ void GameScreenLevel0::UpdateCoins(float deltaTime, SDL_Event e)
 		int coinIndexToDelete = -1;
 		for (unsigned int i = 0; i < mCoins.size(); i++)
 		{
-
 			mCoins[i]->Update(deltaTime);
 			if ((mCoins[i]->GetPosition().y > 300.0f || mCoins[i]->GetPosition().y <= 64.0f) && (mCoins[i]->GetPosition().x < 64.0f || mCoins[i]->GetPosition().x > SCREEN_WIDTH - 96.0f))
 			{

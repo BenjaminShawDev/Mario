@@ -21,6 +21,7 @@ void Coins::Render()
 
 void Coins::Update(float deltaTime)
 {
+
 	//Change frame?
 	mFrameDelay -= deltaTime;
 	if (mFrameDelay <= 0.0f)

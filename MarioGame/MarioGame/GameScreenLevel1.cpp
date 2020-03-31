@@ -2,6 +2,7 @@
 #include <iostream>
 #include "Texture2D.h"
 #include "PowBlock.h"
+#include "GameScreenManager.h"
 
 GameScreenLevel1::GameScreenLevel1(SDL_Renderer* renderer) : GameScreen(renderer)
 {

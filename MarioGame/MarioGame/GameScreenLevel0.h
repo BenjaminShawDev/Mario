@@ -11,13 +11,14 @@
 #include "CharacterLuigi.h"
 #include "Collisions.h"
 #include "LevelMap.h"
-#include "CharacterKoopa.h"
+#include "CharacterGoomba.h"
 #include "Coins.h"
 #include <vector>
 
 class Texture2D;
 class Character;
 class CharacterMario;
+class QuestionBlock;
 
 class GameScreenLevel0 : GameScreen
 {
@@ -26,6 +27,7 @@ private:
 	CharacterMario* myCharacter1;
 	CharacterLuigi* myCharacter2;
 	LevelMap* mLevelMap;
+	QuestionBlock* mQuestionBlock;
 	Mix_Chunk* gCoin;
 	Mix_Chunk* gPlayerDeath;
 
@@ -33,6 +35,7 @@ private:
 
 	int coinsCollected;
 
+	vector<CharacterGoomba*> mGoombas;
 	vector<Coins*> mCoins;
 
 public:
@@ -41,8 +44,9 @@ public:
 	void Render();
 	void Update(float deltaTime, SDL_Event e);
 	void SetLevelMap();
-	void UpdateEnemies();
-	void CreateKoopa(Vector2D position, FACING direction);
+	void UpdateQuestionBlock(float deltaTime);
+	void UpdateGoomba(float deltaTime, SDL_Event e);
+	void CreateGoomba(Vector2D position, FACING direction, float speed);
 	void UpdateCoins(float deltaTime, SDL_Event e);
 	void CreateCoins(Vector2D position);
 	void SoundEffects(string path);

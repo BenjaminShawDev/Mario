@@ -76,14 +76,16 @@ void Character::Update(float deltaTime, SDL_Event e)
 	//Edge collision with block (left)
 	if (mCurrentLevelMap->GetTileAt(sidePosition, leftXPosition) == 1 || mCurrentLevelMap->GetTileAt(sidePosition, leftXPosition) == 2)
 	{
-		mPosition.x += 0.1;
+		mPosition.x += 0.2;
+		mMovingRight = false;
 		AddGravity(deltaTime);
 	}
 
 	//Edge collision with block (right)
 	else if (mCurrentLevelMap->GetTileAt(sidePosition, rightXPosition) == 1 || mCurrentLevelMap->GetTileAt(sidePosition, rightXPosition) == 2)
 	{
-		mPosition.x -= 0.1;
+		mPosition.x -= 0.2;
+		mMovingLeft = false;
 		AddGravity(deltaTime);
 	}
 
