@@ -6,6 +6,7 @@
 #include <SDL_mixer.h>
 #include "Commons.h"
 #include "GameScreen.h"
+#include "GameScreenManager.h"
 #include "Character.h"
 #include "CharacterMario.h"
 #include "CharacterLuigi.h"
@@ -19,6 +20,7 @@ class Texture2D;
 class Character;
 class CharacterMario;
 class QuestionBlock;
+class GameScreenManager;
 
 class GameScreenLevel0 : GameScreen
 {
@@ -34,6 +36,9 @@ private:
 	bool SetUpLevel();
 
 	int coinsCollected;
+	int pipeAnimationDelay;
+	int playerYPosition;
+	bool doPipeTransition;
 
 	vector<CharacterGoomba*> mGoombas;
 	vector<Coins*> mCoins;

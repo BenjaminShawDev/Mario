@@ -2,5 +2,126 @@
 C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.h(42,110): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.h(42,87): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.cpp(79,21): warning C4305:  '+=': truncation from 'double' to 'float'
-C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.cpp(87,21): warning C4305:  '-=': truncation from 'double' to 'float'
+  CharacterGoomba.cpp
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.cpp(86,21): warning C4305:  '-=': truncation from 'double' to 'float'
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.h(42,110): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.h(42,87): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\CharacterGoomba.cpp(8,44): warning C4244:  '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\CharacterGoomba.cpp(9,43): warning C4244:  '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\CharacterGoomba.cpp(17,55): warning C4838:  conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\CharacterGoomba.cpp(17,55): warning C4244:  'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\CharacterGoomba.cpp(17,75): warning C4838:  conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\CharacterGoomba.cpp(17,75): warning C4244:  'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\CharacterGoomba.cpp(18,64): warning C4838:  conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\CharacterGoomba.cpp(18,64): warning C4244:  'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\CharacterGoomba.cpp(18,84): warning C4838:  conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\CharacterGoomba.cpp(18,84): warning C4244:  'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\CharacterGoomba.cpp(30,26): warning C4244:  '-=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\CharacterGoomba.cpp(33,17): warning C4244:  '=': conversion from 'float' to 'int', possible loss of data
+  CharacterKoopa.cpp
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\CharacterGoomba.cpp(47,20): warning C4244:  '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.h(42,110): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.h(42,87): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\CharacterKoopa.cpp(13,43): warning C4244:  '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\CharacterKoopa.cpp(77,11): warning C4244:  'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\CharacterKoopa.cpp(80,10): warning C4244:  '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\CharacterKoopa.cpp(82,45): warning C4838:  conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\CharacterKoopa.cpp(82,45): warning C4244:  'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\CharacterKoopa.cpp(82,65): warning C4838:  conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\CharacterKoopa.cpp(82,65): warning C4244:  'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\CharacterKoopa.cpp(84,64): warning C4838:  conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\CharacterKoopa.cpp(84,64): warning C4244:  'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\CharacterKoopa.cpp(84,84): warning C4838:  conversion from 'float' to 'int' requires a narrowing conversion
+  CharacterLuigi.cpp
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\CharacterKoopa.cpp(84,84): warning C4244:  'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.h(42,110): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+  CharacterMario.cpp
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.h(42,87): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.h(42,110): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+  Coins.cpp
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.h(42,87): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.h(42,110): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.h(42,87): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Coins.cpp(6,44): warning C4244:  '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Coins.cpp(7,43): warning C4244:  '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Coins.cpp(16,55): warning C4838:  conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Coins.cpp(16,55): warning C4244:  'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Coins.cpp(16,75): warning C4838:  conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Coins.cpp(16,75): warning C4244:  'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Coins.cpp(17,64): warning C4838:  conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Coins.cpp(17,64): warning C4244:  'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Coins.cpp(17,84): warning C4838:  conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Coins.cpp(17,84): warning C4244:  'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Coins.cpp(26,26): warning C4244:  '-=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Coins.cpp(30,17): warning C4244:  '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Coins.cpp(47,20): warning C4244:  '=': conversion from 'float' to 'int', possible loss of data
+  Collisions.cpp
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Coins.cpp(52,39): warning C4244:  '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.h(42,110): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+  GameScreen.cpp
+  GameScreenLevel0.cpp
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.h(42,87): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.h(42,110): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.h(42,87): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\QuestionBlock.h(11,118): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\QuestionBlock.h(11,92): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\GameScreenLevel0.cpp(72,43): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\GameScreenLevel0.cpp(73,43): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\GameScreenLevel0.cpp(76,34): warning C4244:  '-=': conversion from 'float' to 'int', possible loss of data
+  GameScreenLevel1.cpp
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\GameScreenLevel0.cpp(79,25): warning C4244:  '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.h(42,110): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.h(42,87): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\PowBlock.h(10,115): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\PowBlock.h(10,92): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+  GameScreenManager.cpp
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\GameScreenLevel1.cpp(180,20): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.h(42,110): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+  LevelMap.cpp
+  Source.cpp
+  PowBlock.cpp
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.h(42,87): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.h(42,110): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.h(42,87): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\PowBlock.h(10,115): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\PowBlock.h(10,92): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\PowBlock.cpp(15,44): warning C4244:  '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\PowBlock.cpp(16,43): warning C4244:  '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\PowBlock.cpp(34,12): warning C4244:  'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\PowBlock.cpp(35,46): warning C4838:  conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\PowBlock.cpp(35,46): warning C4244:  'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\PowBlock.cpp(35,66): warning C4838:  conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\PowBlock.cpp(35,66): warning C4244:  'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\PowBlock.cpp(36,65): warning C4838:  conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\PowBlock.cpp(36,65): warning C4244:  'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\PowBlock.cpp(36,85): warning C4838:  conversion from 'float' to 'int' requires a narrowing conversion
+  QuestionBlock.cpp
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\PowBlock.cpp(36,85): warning C4244:  'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.h(42,110): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.h(42,87): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\QuestionBlock.h(11,118): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\QuestionBlock.h(11,92): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\QuestionBlock.cpp(15,44): warning C4244:  '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\QuestionBlock.cpp(16,43): warning C4244:  '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\QuestionBlock.cpp(34,27): warning C4244:  '-=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\QuestionBlock.cpp(37,18): warning C4244:  '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\QuestionBlock.cpp(50,21): warning C4244:  '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\QuestionBlock.cpp(55,40): warning C4244:  '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\QuestionBlock.cpp(61,39): warning C4244:  '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\QuestionBlock.cpp(67,55): warning C4838:  conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\QuestionBlock.cpp(67,55): warning C4244:  'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\QuestionBlock.cpp(67,75): warning C4838:  conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\QuestionBlock.cpp(67,75): warning C4244:  'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\QuestionBlock.cpp(68,64): warning C4838:  conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\QuestionBlock.cpp(68,64): warning C4244:  'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\QuestionBlock.cpp(68,84): warning C4838:  conversion from 'float' to 'int' requires a narrowing conversion
+  Texture2D.cpp
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\QuestionBlock.cpp(68,84): warning C4244:  'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.h(42,110): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.h(42,87): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Texture2D.cpp(72,41): warning C4838:  conversion from 'float' to 'int' requires a narrowing conversion
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Texture2D.cpp(72,41): warning C4244:  'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Texture2D.cpp(72,56): warning C4838:  conversion from 'float' to 'int' requires a narrowing conversion
+  Generating Code...
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Texture2D.cpp(72,56): warning C4244:  'initializing': conversion from 'float' to 'int', possible loss of data
   MarioGame.vcxproj -> C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\Debug\MarioGame.exe

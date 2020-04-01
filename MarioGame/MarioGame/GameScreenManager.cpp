@@ -54,8 +54,6 @@ void GameScreenManager::ChangeScreen(SCREENS newScreen)
 		tempScreen1 = new GameScreenLevel1(mRenderer);
 		mCurrentScreen = (GameScreen*)tempScreen1;
 		tempScreen1 = NULL;
-	break;
-	case SCREEN_LEVEL2:
 		break;
 	case SCREEN_GAMEOVER:
 		break;

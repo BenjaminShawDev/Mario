@@ -285,7 +285,7 @@ void GameScreenLevel1::UpdateCoins(float deltaTime, SDL_Event e)
 
 void GameScreenLevel1::CreateKoopa(Vector2D position, FACING direction, float speed)
 {
-	CharacterKoopa* koopaCharacter = new CharacterKoopa(mRenderer, "Images/KoopaTest.png", mLevelMap, position, direction, speed);
+	CharacterKoopa* koopaCharacter = new CharacterKoopa(mRenderer, "Images/Koopa.png", mLevelMap, position, direction, speed);
 	mEnemies.push_back(koopaCharacter);
 }
 

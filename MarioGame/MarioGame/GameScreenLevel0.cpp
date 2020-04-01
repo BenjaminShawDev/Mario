@@ -1,10 +1,18 @@
 #include "GameScreenLevel0.h"
 #include "QuestionBlock.h"
+#include "GameScreenManager.h"
+
+GameScreenManager* gameScreenManagerTest;
+SDL_Renderer* gRendererTest = NULL;
+//Source* levelTest;
 
 GameScreenLevel0::GameScreenLevel0(SDL_Renderer* renderer) : GameScreen(renderer)
 {
 	SetUpLevel();
 	mLevelMap = NULL;
+	pipeAnimationDelay = 0;
+	playerYPosition = 280;
+	doPipeTransition = false;
 }
 
 GameScreenLevel0::~GameScreenLevel0()
@@ -53,6 +61,35 @@ void GameScreenLevel0::Update(float deltaTime, SDL_Event e)
 
 	UpdateGoomba(deltaTime, e);
 	UpdateCoins(deltaTime, e);
+
+	if (myCharacter1->GetPosition().x >= 430 && myCharacter1->GetPosition().x <=450 && myCharacter1->GetPosition().y >= 270 && myCharacter1->GetPosition().y <= 280 || myCharacter2->GetPosition().x >= 430 && myCharacter2->GetPosition().x <= 450 && myCharacter2->GetPosition().y >= 270 && myCharacter2->GetPosition().y)
+	{
+		doPipeTransition = true;
+	}
+
+	if (doPipeTransition)
+	{
+		myCharacter1->SetPosition(Vector2D(450, playerYPosition));
+		myCharacter2->SetPosition(Vector2D(434, playerYPosition));
+		myCharacter1->CancelJump();
+		myCharacter2->CancelJump();
+		pipeAnimationDelay -= deltaTime;
+		if (pipeAnimationDelay <= 0.0f)
+		{
+			pipeAnimationDelay = PIPE_ANIMATION_DELAY;
+			playerYPosition++;
+		}
+	}
+
+	if (playerYPosition == 500 && doPipeTransition)
+	{
+		doPipeTransition = false;
+		playerYPosition = 0;
+		myCharacter1->SetPosition(Vector2D(64, 330));
+		myCharacter2->SetPosition(Vector2D(32, 330));
+		//gameScreenManagerTest = new GameScreenManager(gRendererTest, SCREEN_LEVEL1);
+		gameScreenManagerTest->ChangeScreen(SCREEN_LEVEL1);
+	}
 }
 
 
@@ -68,8 +105,8 @@ void GameScreenLevel0::SetLevelMap()
 										{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 										{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 										{0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0},
-										{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-										{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+										{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
+										{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0},
 										{1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1} };
 
 	//Clear up any old map
@@ -91,7 +128,7 @@ bool GameScreenLevel0::SetUpLevel()
 	// Set up the player character
 	myCharacter1 = new CharacterMario(mRenderer, "Images/Mario.png", Vector2D(64, 330), mLevelMap);
 	myCharacter2 = new CharacterLuigi(mRenderer, "Images/Luigi.png", Vector2D(32, 330), mLevelMap);
-	if (!mBackgroundTexture->LoadFromFile("Images/Level0BackgroundTest.png"))
+	if (!mBackgroundTexture->LoadFromFile("Images/Level0Background.png"))
 	{
 		cout << "Failed to load background texture" << endl;
 		return false;

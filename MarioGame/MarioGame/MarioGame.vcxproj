@@ -137,7 +137,7 @@
     <ClCompile Include="GameScreenLevel1.cpp" />
     <ClCompile Include="GameScreenManager.cpp" />
     <ClCompile Include="LevelMap.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Source.cpp" />
     <ClCompile Include="PowBlock.cpp" />
     <ClCompile Include="QuestionBlock.cpp" />
     <ClCompile Include="Texture2D.cpp" />

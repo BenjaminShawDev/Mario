@@ -73,20 +73,18 @@ void Character::Update(float deltaTime, SDL_Event e)
 		mJumping = false;
 	}
 
-	//Edge collision with block (left)
-	if (mCurrentLevelMap->GetTileAt(sidePosition, leftXPosition) == 1 || mCurrentLevelMap->GetTileAt(sidePosition, leftXPosition) == 2)
+	//Side collision with block (right)
+	if (mCurrentLevelMap->GetTileAt(sidePosition, leftXPosition) == 1 || mCurrentLevelMap->GetTileAt((int)(mPosition.y + 41) / TILE_HEIGHT, (int)(mPosition.x) / TILE_WIDTH) == 1 || mCurrentLevelMap->GetTileAt(sidePosition, leftXPosition) == 2 || mCurrentLevelMap->GetTileAt((int)(mPosition.y + 41) / TILE_HEIGHT, (int)(mPosition.x) / TILE_WIDTH) == 2)
 	{
 		mPosition.x += 0.2;
-		mMovingRight = false;
-		AddGravity(deltaTime);
+		mMovingLeft = false;
 	}
 
-	//Edge collision with block (right)
-	else if (mCurrentLevelMap->GetTileAt(sidePosition, rightXPosition) == 1 || mCurrentLevelMap->GetTileAt(sidePosition, rightXPosition) == 2)
+	//Side collision with block (left)
+	if (mCurrentLevelMap->GetTileAt(sidePosition, rightXPosition) == 1 || mCurrentLevelMap->GetTileAt((int)(mPosition.y + 41) / TILE_HEIGHT, (int)(mPosition.x + 32) / TILE_WIDTH) == 1 || mCurrentLevelMap->GetTileAt(sidePosition, rightXPosition) == 2 || mCurrentLevelMap->GetTileAt((int)(mPosition.y + 41) / TILE_HEIGHT, (int)(mPosition.x + 32) / TILE_WIDTH) == 2)
 	{
 		mPosition.x -= 0.2;
-		mMovingLeft = false;
-		AddGravity(deltaTime);
+		mMovingRight = false;
 	}
 
 	if (mPosition.y > 450.0f)

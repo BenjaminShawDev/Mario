@@ -2,7 +2,7 @@
 
 QuestionBlock::QuestionBlock(SDL_Renderer* renderer, LevelMap* map)
 {
-	string imagePath = "Images/QuestionBlockTest2.png";
+	string imagePath = "Images/QuestionBlock.png";
 	mTexture = new Texture2D(renderer);
 	if (!mTexture->LoadFromFile(imagePath.c_str()))
 	{
