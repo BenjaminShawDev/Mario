@@ -66,7 +66,7 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e)
 
 	if (isMarioDead == true && isLuigiDead == true)
 	{
-		cout << "GAME OVER" << endl;
+		cout << "CHANGE TO GAME OVER SCREEN" << endl;
 	}
 
 	if (mScreenShake)
@@ -288,14 +288,12 @@ void GameScreenLevel1::UpdateCoins(float deltaTime, SDL_Event e)
 				{
 					mCoins[i]->SetAlive(false);
 					coinsCollected += 1;
-					cout << "Coins: " << coinsCollected << endl;
 					SoundEffects("Music/Coin.wav");
 				}
 				if (Collisions::Instance()->Circle(mCoins[i], myCharacter2))
 				{
 					mCoins[i]->SetAlive(false);
 					coinsCollected += 1;
-					cout << "Coins: " << coinsCollected << endl;
 					SoundEffects("Music/Coin.wav");
 				}
 			}

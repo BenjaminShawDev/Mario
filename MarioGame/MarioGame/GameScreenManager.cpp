@@ -1,8 +1,10 @@
 #include "GameScreen.h"
+#include "GameScreenMenu.h"
 #include "GameScreenLevel0.h"
 #include "GameScreenLevel1.h"
 #include "GameScreenManager.h"
 
+GameScreenMenu* tempScreenMenu;
 GameScreenLevel0* tempScreen0;
 GameScreenLevel1* tempScreen1;
 
@@ -12,6 +14,7 @@ GameScreenManager::GameScreenManager(SDL_Renderer* renderer, SCREENS startScreen
 	mCurrentScreen = NULL;
 	//Ensure the screen is set up
 	ChangeScreen(startScreen);
+	testInt = 0;
 }
 
 GameScreenManager::~GameScreenManager()
@@ -41,9 +44,10 @@ void GameScreenManager::ChangeScreen(SCREENS newScreen)
 
 	switch (newScreen)
 	{
-	case SCREEN_INTRO:
-		break;
 	case SCREEN_MENU:
+		tempScreenMenu = new GameScreenMenu(mRenderer);
+		mCurrentScreen = (GameScreen*)tempScreenMenu;
+		tempScreenMenu = NULL;
 		break;
 	case SCREEN_LEVEL0:
 		tempScreen0 = new GameScreenLevel0(mRenderer);
@@ -62,4 +66,10 @@ void GameScreenManager::ChangeScreen(SCREENS newScreen)
 	default:
 		break;
 	}
+}
+
+void GameScreenManager::ChangeScreenTrigger()
+{
+	ChangeScreen(SCREENS(SCREEN_LEVEL1));
+	cout << "Changed Screen!" << endl;
 }

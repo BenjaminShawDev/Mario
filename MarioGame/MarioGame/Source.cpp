@@ -16,7 +16,7 @@ SDL_Renderer* gRenderer = NULL;
 GameScreenManager* gameScreenManager;
 Uint32 gOldTime;
 Mix_Music* gMusic = NULL;
-int LevelTestNum = 3;
+GameScreenLevel0* gameScreenTest;
 
 //Function Prototypes
 bool InitSDL();
@@ -25,17 +25,13 @@ bool Update();
 void Render();
 void LoadMusic(string path); 
 
-
 int main(int argc, char* args[])
 {
 	//Check if SDL was set up correctly
 	if (InitSDL())
 	{
 		//Set up the game screen manager
-		gameScreenManager = new GameScreenManager(gRenderer, SCREENS(LevelTestNum));
-		//gameScreenManager->ChangeScreen(SCREENS(SCREEN_LEVEL1));
-
-		//gameScreenManager->ChangeScreen(SCREEN_LEVEL1);
+		gameScreenManager = new GameScreenManager(gRenderer, SCREENS(SCREEN_MENU));
 
 		LoadMusic("Music/Mario.mp3");
 		gOldTime = SDL_GetTicks();
@@ -158,10 +154,15 @@ bool Update()
 	break;
 	}
 
-	if (LevelTestNum == 2)
+	switch (e.type)
 	{
-		LevelTestNum++;
-		//gameScreenManager->ChangeScreen(SCREENS(LevelTestNum));
+	case SDL_KEYDOWN:
+		switch (e.key.keysym.sym)
+		{
+		case SDLK_RETURN:
+			gameScreenManager->ChangeScreen(SCREENS(SCREEN_LEVEL0));
+			break;
+		}
 	}
 
 	gameScreenManager->Update((float)(newTime - gOldTime) / 1000.0f, e);

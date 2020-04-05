@@ -21,7 +21,6 @@ class Character;
 class CharacterMario;
 class QuestionBlock;
 class GameScreenManager;
-class Source;
 
 class GameScreenLevel0 : GameScreen
 {
@@ -31,6 +30,8 @@ private:
 	CharacterLuigi* myCharacter2;
 	LevelMap* mLevelMap;
 	QuestionBlock* mQuestionBlock;
+	Coins* coin;
+	GameScreenManager* gameScreenManagerTest;
 	//Sounds
 	Mix_Chunk* gCoin;
 	Mix_Chunk* gPlayerDeath;
@@ -62,6 +63,7 @@ public:
 	void CreateCoins(Vector2D position);
 	void SoundEffects(string path);
 	void PipeLevelChange(float deltaTime);
+	bool booleanTest();
 };
 
 #endif // !_GAMESCREENLEVEL0_H

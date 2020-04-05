@@ -2,10 +2,6 @@
 #include "QuestionBlock.h"
 #include "GameScreenManager.h"
 
-GameScreenManager* gameScreenManagerTest;
-SDL_Renderer* gRendererTest = NULL;
-Coins* coin;
-
 GameScreenLevel0::GameScreenLevel0(SDL_Renderer* renderer) : GameScreen(renderer)
 {
 	SetUpLevel();
@@ -31,6 +27,7 @@ GameScreenLevel0::~GameScreenLevel0()
 	delete mQuestionBlock;
 	mQuestionBlock = NULL;
 
+	mCoins.clear();
 	mGoombas.clear();
 }
 
@@ -75,10 +72,10 @@ void GameScreenLevel0::Update(float deltaTime, SDL_Event e)
 
 	if (isMarioDead == true && isLuigiDead == true)
 	{
-		cout << "GAME OVER" << endl;
+		cout << "CHANGE TO GAME OVER SCREEN" << endl;
 	}
 
-	if (myCharacter1->GetPosition().x >= 430 && myCharacter1->GetPosition().x <=450 && myCharacter1->GetPosition().y >= 270 && myCharacter1->GetPosition().y <= 280 || myCharacter2->GetPosition().x >= 430 && myCharacter2->GetPosition().x <= 450 && myCharacter2->GetPosition().y >= 270 && myCharacter2->GetPosition().y)
+	if (myCharacter1->GetPosition().x >= 430 && myCharacter1->GetPosition().x <= 450 && myCharacter1->GetPosition().y >= 270 || myCharacter2->GetPosition().x >= 430 && myCharacter2->GetPosition().x <= 450 && myCharacter2->GetPosition().y >= 270)
 	{
 		PipeLevelChange(deltaTime);
 	}
@@ -127,6 +124,7 @@ bool GameScreenLevel0::SetUpLevel()
 	}
 
 	mQuestionBlock = new QuestionBlock(mRenderer, mLevelMap);
+	//mLevelMap->ChangeTileAt(14, 13, 0);
 
 	//Set up enemies and coins
 	CreateGoomba(Vector2D(260, 240), FACING_LEFT, MOVEMENT_SPEED);
@@ -198,8 +196,8 @@ void GameScreenLevel0::UpdateGoomba(float deltaTime, SDL_Event e)
 				{
 					SoundEffects("Music/PlayerDeath.wav");
 					//myCharacter2->SetPosition(myCharacter2->CharacterRespawn());
-					isMarioDead = true;
-					myCharacter1->SetPosition(Vector2D(-40, -40));
+					isLuigiDead = true;
+					myCharacter2->SetPosition(Vector2D(-40, -40));
 				}
 			}
 
@@ -241,14 +239,12 @@ void GameScreenLevel0::UpdateCoins(float deltaTime, SDL_Event e)
 				{
 					mCoins[i]->SetAlive(false);
 					coinsCollected += 1;
-					cout << "Coins: " << coinsCollected << endl;
 					SoundEffects("Music/Coin.wav");
 				}
 				if (Collisions::Instance()->Circle(mCoins[i], myCharacter2))
 				{
 					mCoins[i]->SetAlive(false);
 					coinsCollected += 1;
-					cout << "Coins: " << coinsCollected << endl;
 					SoundEffects("Music/Coin.wav");
 				}
 			}
@@ -316,29 +312,37 @@ void GameScreenLevel0::SoundEffects(string path)
 
 void GameScreenLevel0::PipeLevelChange(float deltaTime)
 {
-	doPipeTransition = true;
 	if (!isMarioDead)
-		myCharacter1->SetPosition(Vector2D(450, playerYPosition));
+	{
+		myCharacter1->SetPosition(Vector2D(449, playerYPosition));
+		myCharacter1->CancelJump();
+	}
 	if (!isLuigiDead)
+	{
 		myCharacter2->SetPosition(Vector2D(434, playerYPosition));
-	myCharacter1->CancelJump();
-	myCharacter2->CancelJump();
-	SoundEffects("Music/Pipe.wav");
+		myCharacter2->CancelJump();
+	}
+	if (doPipeTransition == false)
+	{
+		SoundEffects("Music/Pipe.wav");
+		doPipeTransition = true;
+	}
 	pipeAnimationDelay -= deltaTime;
 	if (pipeAnimationDelay <= 0.0f)
 	{
 		pipeAnimationDelay = PIPE_ANIMATION_DELAY / (deltaTime * 300);
 		playerYPosition++;
+		playerYPosition++;
 	}
 
-	if (playerYPosition == 500 && doPipeTransition)
+	if (playerYPosition >= 450 && doPipeTransition)
 	{
 		doPipeTransition = false;
-		playerYPosition = 0;
+		playerYPosition = NULL;
 		myCharacter1->SetPosition(Vector2D(64, 330));
 		myCharacter2->SetPosition(Vector2D(32, 330));
-		//gameScreenManagerTest = new GameScreenManager(gRendererTest, SCREENS(SCREEN_LEVEL1));
-		//dynamic_cast<GameScreenManager*>(gameScreenManagerTest)->ChangeScreen(SCREEN_LEVEL1);
-		//gameScreenManagerTest->ChangeScreen(SCREENS(SCREEN_LEVEL1));
+
+		//Change screen somehow
+		cout << "SCREEN CHANGE" << endl;
 	}
 }

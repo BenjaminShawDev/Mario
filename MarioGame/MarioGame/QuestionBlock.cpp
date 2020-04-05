@@ -71,6 +71,5 @@ void QuestionBlock::Render()
 
 void QuestionBlock::TakeAHit()
 {
-	cout << "HIT!" << endl;
 	mHasBeenHit = true;
 }
