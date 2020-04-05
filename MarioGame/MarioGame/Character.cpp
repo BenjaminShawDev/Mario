@@ -53,7 +53,6 @@ void Character::Update(float deltaTime, SDL_Event e)
 	int sidePosition = (int)(mPosition.y + (mTexture->GetHeight() * 0.5f)) / TILE_HEIGHT;
 	int leftXPosition = (int)(mPosition.x) / TILE_WIDTH;
 	int rightXPosition = (int)(mPosition.x + (mTexture->GetWidth())) / TILE_WIDTH;
-	int testPosition = (int)(mPosition.y + mTexture->GetHeight()) / (TILE_HEIGHT / 3);
 
 	//Deal with gravity
 	if (mCurrentLevelMap->GetTileAt(footPosition, leftXPosition) == 0 && mCurrentLevelMap->GetTileAt(footPosition, rightXPosition) == 0)
@@ -76,14 +75,14 @@ void Character::Update(float deltaTime, SDL_Event e)
 	//Side collision with block (right)
 	if (mCurrentLevelMap->GetTileAt(sidePosition, leftXPosition) == 1 || mCurrentLevelMap->GetTileAt((int)(mPosition.y + 41) / TILE_HEIGHT, (int)(mPosition.x) / TILE_WIDTH) == 1 || mCurrentLevelMap->GetTileAt(sidePosition, leftXPosition) == 2 || mCurrentLevelMap->GetTileAt((int)(mPosition.y + 41) / TILE_HEIGHT, (int)(mPosition.x) / TILE_WIDTH) == 2)
 	{
-		mPosition.x += 0.2;
+		//mPosition.x += 0.2 * deltaTime;
 		mMovingLeft = false;
 	}
 
 	//Side collision with block (left)
 	if (mCurrentLevelMap->GetTileAt(sidePosition, rightXPosition) == 1 || mCurrentLevelMap->GetTileAt((int)(mPosition.y + 41) / TILE_HEIGHT, (int)(mPosition.x + 32) / TILE_WIDTH) == 1 || mCurrentLevelMap->GetTileAt(sidePosition, rightXPosition) == 2 || mCurrentLevelMap->GetTileAt((int)(mPosition.y + 41) / TILE_HEIGHT, (int)(mPosition.x + 32) / TILE_WIDTH) == 2)
 	{
-		mPosition.x -= 0.2;
+		//mPosition.x -= 0.2 * deltaTime;
 		mMovingRight = false;
 	}
 

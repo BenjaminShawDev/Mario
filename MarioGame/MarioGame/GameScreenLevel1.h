@@ -39,6 +39,8 @@ private:
 	float mWobble;
 	float mBackgroundYPos;
 	int coinsCollected;
+	bool isMarioDead;
+	bool isLuigiDead;
 	vector<CharacterKoopa*> mEnemies;
 	vector<Coins*> mCoins;
 	

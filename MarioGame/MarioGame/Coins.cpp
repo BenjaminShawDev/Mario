@@ -27,7 +27,7 @@ void Coins::Update(float deltaTime)
 	if (mFrameDelay <= 0.0f)
 	{
 		//Reset frame delay count
-		mFrameDelay = ANIMATION_DELAY;
+		mFrameDelay = ANIMATION_DELAY / (deltaTime*10);
 
 		//Move frame on
 		mCurrentFrame++;

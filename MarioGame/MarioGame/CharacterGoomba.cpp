@@ -30,7 +30,7 @@ void CharacterGoomba::Update(float deltaTime, SDL_Event e)
 	mFrameDelay -= deltaTime;
 	if (mFrameDelay <= 0.0f)
 	{
-		mFrameDelay = ANIMATION_DELAY;
+		mFrameDelay = ANIMATION_DELAY / (deltaTime*10);
 		mCurrentFrame++;
 
 		if (mCurrentFrame > 1)

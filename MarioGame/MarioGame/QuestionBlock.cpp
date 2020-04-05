@@ -34,7 +34,7 @@ void QuestionBlock::Update(float deltaTime)
 		mFrameDelay -= deltaTime;
 		if (mFrameDelay <= 0)
 		{
-			mFrameDelay = ANIMATION_DELAY;
+			mFrameDelay = ANIMATION_DELAY / (deltaTime*10);
 			mCurrentFrame++;
 			if (mCurrentFrame > 2)
 				mCurrentFrame = 0;

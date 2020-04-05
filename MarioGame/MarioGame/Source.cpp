@@ -7,6 +7,7 @@
 #include "Texture2D.h"
 #include "GameScreen.h"
 #include "GameScreenManager.h"
+#include "GameScreenLevel0.h"
 using namespace std;
 
 //Globals
@@ -15,13 +16,15 @@ SDL_Renderer* gRenderer = NULL;
 GameScreenManager* gameScreenManager;
 Uint32 gOldTime;
 Mix_Music* gMusic = NULL;
+int LevelTestNum = 3;
 
 //Function Prototypes
 bool InitSDL();
 void CloseSDL();
 bool Update();
 void Render();
-void LoadMusic(string path);
+void LoadMusic(string path); 
+
 
 int main(int argc, char* args[])
 {
@@ -29,7 +32,8 @@ int main(int argc, char* args[])
 	if (InitSDL())
 	{
 		//Set up the game screen manager
-		gameScreenManager = new GameScreenManager(gRenderer, SCREENS(SCREEN_LEVEL0));
+		gameScreenManager = new GameScreenManager(gRenderer, SCREENS(LevelTestNum));
+		//gameScreenManager->ChangeScreen(SCREENS(SCREEN_LEVEL1));
 
 		//gameScreenManager->ChangeScreen(SCREEN_LEVEL1);
 
@@ -152,6 +156,12 @@ bool Update()
 	case SDL_QUIT:
 		return true;
 	break;
+	}
+
+	if (LevelTestNum == 2)
+	{
+		LevelTestNum++;
+		//gameScreenManager->ChangeScreen(SCREENS(LevelTestNum));
 	}
 
 	gameScreenManager->Update((float)(newTime - gOldTime) / 1000.0f, e);

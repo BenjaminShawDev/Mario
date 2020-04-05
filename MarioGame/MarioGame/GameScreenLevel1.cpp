@@ -8,6 +8,8 @@ GameScreenLevel1::GameScreenLevel1(SDL_Renderer* renderer) : GameScreen(renderer
 {
 	SetUpLevel();
 	mLevelMap = NULL;
+	isMarioDead = false;
+	isLuigiDead = false;
 }
 
 GameScreenLevel1::~GameScreenLevel1()
@@ -53,6 +55,20 @@ void GameScreenLevel1::Render()
 
 void GameScreenLevel1::Update(float deltaTime, SDL_Event e)
 {
+	if (isMarioDead == true)
+	{
+		myCharacter1->SetPosition(Vector2D(-40, -40));
+	}
+	if (isLuigiDead == true)
+	{
+		myCharacter2->SetPosition(Vector2D(-40, -40));
+	}
+
+	if (isMarioDead == true && isLuigiDead == true)
+	{
+		cout << "GAME OVER" << endl;
+	}
+
 	if (mScreenShake)
 	{
 		mScreenShakeTime -= deltaTime;
@@ -112,8 +128,8 @@ bool GameScreenLevel1::SetUpLevel()
 	//Create the level map
 	SetLevelMap();
 	//Set up the player character
-	myCharacter1 = new CharacterMario(mRenderer, "Images/Mario.png", Vector2D(64, 330), mLevelMap);
-	myCharacter2 = new CharacterLuigi(mRenderer, "Images/Luigi.png", Vector2D(416, 330), mLevelMap);
+	myCharacter1 = new CharacterMario(mRenderer, "Images/Mario.png", Vector2D(96, 330), mLevelMap);
+	myCharacter2 = new CharacterLuigi(mRenderer, "Images/Luigi.png", Vector2D(64, 330), mLevelMap);
 	if (!mBackgroundTexture->LoadFromFile("Images/Level1Background.png"))
 	{
 		cout << "Failed to load background texture" << endl;;
@@ -129,12 +145,22 @@ bool GameScreenLevel1::SetUpLevel()
 	CreateKoopa(Vector2D(64, 32), FACING_RIGHT, MOVEMENT_SPEED);
 	CreateKoopa(Vector2D(416, 32), FACING_LEFT, MOVEMENT_SPEED);
 
-	//Set up coins
-	CreateCoins(Vector2D(200, 350));
-	CreateCoins(Vector2D(220, 350));
-	CreateCoins(Vector2D(240, 350));
-	CreateCoins(Vector2D(260, 350));
-	CreateCoins(Vector2D(280, 350));
+	//Set up floor coins
+	CreateCoins(Vector2D(329, 350));
+	CreateCoins(Vector2D(361, 350));
+	CreateCoins(Vector2D(393, 350));
+	//1st platform coins
+	CreateCoins(Vector2D(137, 255));
+	CreateCoins(Vector2D(105, 255));
+	CreateCoins(Vector2D(73, 255));
+	CreateCoins(Vector2D(361, 255));
+	CreateCoins(Vector2D(393, 255));
+	CreateCoins(Vector2D(425, 255));
+	//2nd platform coins
+	CreateCoins(Vector2D(202, 130));
+	CreateCoins(Vector2D(234, 130));
+	CreateCoins(Vector2D(266, 130));
+	CreateCoins(Vector2D(298, 130));
 	coinsCollected = 0;
 
 	return true;
@@ -213,12 +239,16 @@ void GameScreenLevel1::UpdateEnemies(float deltaTime, SDL_Event e)
 				if (Collisions::Instance()->Circle(mEnemies[i], myCharacter1))
 				{
 					SoundEffects("Music/PlayerDeath.wav");
-					myCharacter1->SetPosition(myCharacter1->CharacterRespawn());
+					//myCharacter1->SetPosition(myCharacter1->CharacterRespawn());
+					isMarioDead = true;
+					myCharacter1->SetPosition(Vector2D(-40, -40));
 				}
 				if (Collisions::Instance()->Circle(mEnemies[i], myCharacter2))
 				{
 					SoundEffects("Music/PlayerDeath.wav");
-					myCharacter2->SetPosition(myCharacter2->CharacterRespawn());
+					//myCharacter2->SetPosition(myCharacter2->CharacterRespawn());
+					isLuigiDead = true;
+					myCharacter2->SetPosition(Vector2D(-40, -40));
 				}
 			}
 
