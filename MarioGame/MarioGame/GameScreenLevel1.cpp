@@ -93,6 +93,11 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e)
 	UpdatePowBlock();
 	UpdateEnemies(deltaTime, e);
 	UpdateCoins(deltaTime, e);
+
+	if (coinsCollected == 13)
+	{
+		cout << "YOU WIN!" << endl;
+	}
 }
 
 void GameScreenLevel1::SetLevelMap()
