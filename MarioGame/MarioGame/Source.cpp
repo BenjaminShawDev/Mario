@@ -160,7 +160,7 @@ bool Update()
 		switch (e.key.keysym.sym)
 		{
 		case SDLK_RETURN:
-			gameScreenManager->ChangeScreen(SCREENS(SCREEN_LEVEL1));
+			gameScreenManager->ChangeScreen(SCREENS(SCREEN_LEVEL0));
 			break;
 		}
 	}
