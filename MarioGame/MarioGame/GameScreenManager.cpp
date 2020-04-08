@@ -32,6 +32,7 @@ void GameScreenManager::Render()
 void GameScreenManager::Update(float deltaTime, SDL_Event e)
 {
 	mCurrentScreen->Update(deltaTime, e);
+	dynamic_cast<GameScreenLevel0*>(tempScreen0)->boolTest();
 }
 
 void GameScreenManager::ChangeScreen(SCREENS newScreen)
@@ -68,8 +69,7 @@ void GameScreenManager::ChangeScreen(SCREENS newScreen)
 	}
 }
 
-void GameScreenManager::ChangeScreenTrigger()
+void GameScreenManager::ChangeScreenTest()
 {
-	ChangeScreen(SCREENS(SCREEN_LEVEL1));
-	cout << "Changed Screen!" << endl;
+	//Temp
 }

@@ -63,7 +63,7 @@ public:
 	void CreateCoins(Vector2D position);
 	void SoundEffects(string path);
 	void PipeLevelChange(float deltaTime);
-	bool booleanTest();
+	bool boolTest();
 };
 
 #endif // !_GAMESCREENLEVEL0_H

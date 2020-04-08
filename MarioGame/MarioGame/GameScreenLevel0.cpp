@@ -11,6 +11,8 @@ GameScreenLevel0::GameScreenLevel0(SDL_Renderer* renderer) : GameScreen(renderer
 	doPipeTransition = false;
 	isMarioDead = false;
 	isLuigiDead = false;
+
+	
 }
 
 GameScreenLevel0::~GameScreenLevel0()
@@ -344,5 +346,11 @@ void GameScreenLevel0::PipeLevelChange(float deltaTime)
 
 		//Change screen somehow
 		cout << "SCREEN CHANGE" << endl;
+		gameScreenManagerTest->ChangeScreenTest();
 	}
+}
+
+bool GameScreenLevel0::boolTest()
+{
+	return true;
 }

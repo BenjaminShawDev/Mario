@@ -8,6 +8,9 @@
 #include "GameScreen.h"
 #include "GameScreenManager.h"
 #include "GameScreenLevel0.h"
+#include "Character.h"
+#include "CharacterMario.h"
+#include "CharacterLuigi.h"
 using namespace std;
 
 //Globals
@@ -17,6 +20,7 @@ GameScreenManager* gameScreenManager;
 Uint32 gOldTime;
 Mix_Music* gMusic = NULL;
 GameScreenLevel0* gameScreenTest;
+class GameScreenLevel0;
 
 //Function Prototypes
 bool InitSDL();
@@ -161,6 +165,9 @@ bool Update()
 		{
 		case SDLK_RETURN:
 			gameScreenManager->ChangeScreen(SCREENS(SCREEN_LEVEL0));
+			break;
+		case SDLK_1:
+			gameScreenManager->ChangeScreen(SCREENS(SCREEN_LEVEL1));
 			break;
 		}
 	}
