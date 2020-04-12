@@ -14,13 +14,13 @@
 #include "LevelMap.h"
 #include "CharacterGoomba.h"
 #include "Coins.h"
+#include "QuestionBlock.h"
 #include <vector>
 
 class Texture2D;
-class Character;
-class CharacterMario;
+//class Character;
+//class CharacterMario;
 class QuestionBlock;
-class GameScreenManager;
 
 class GameScreenLevel0 : GameScreen
 {
@@ -31,7 +31,7 @@ private:
 	LevelMap* mLevelMap;
 	QuestionBlock* mQuestionBlock;
 	Coins* coin;
-	GameScreenManager* gameScreenManagerTest;
+	GameScreenManager* gameScreenManager;
 	//Sounds
 	Mix_Chunk* gCoin;
 	Mix_Chunk* gPlayerDeath;
@@ -51,7 +51,7 @@ private:
 	vector<Coins*> mCoins;
 
 public:
-	GameScreenLevel0(SDL_Renderer* renderer);
+	GameScreenLevel0(SDL_Renderer* renderer, GameScreenManager*);
 	~GameScreenLevel0();
 	void Render();
 	void Update(float deltaTime, SDL_Event e);
@@ -63,7 +63,6 @@ public:
 	void CreateCoins(Vector2D position);
 	void SoundEffects(string path);
 	void PipeLevelChange(float deltaTime);
-	bool boolTest();
 };
 
 #endif // !_GAMESCREENLEVEL0_H

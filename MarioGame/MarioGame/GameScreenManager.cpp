@@ -1,12 +1,16 @@
+#include "GameScreenManager.h"
 #include "GameScreen.h"
 #include "GameScreenMenu.h"
 #include "GameScreenLevel0.h"
 #include "GameScreenLevel1.h"
-#include "GameScreenManager.h"
+#include "GameScreenGameOver.h"
+#include "GameScreenVictory.h"
 
 GameScreenMenu* tempScreenMenu;
 GameScreenLevel0* tempScreen0;
 GameScreenLevel1* tempScreen1;
+GameScreenGameOver* tempGameOverScreen;
+GameScreenVictory* tempVictoryScreen;
 
 GameScreenManager::GameScreenManager(SDL_Renderer* renderer, SCREENS startScreen)
 {
@@ -14,7 +18,6 @@ GameScreenManager::GameScreenManager(SDL_Renderer* renderer, SCREENS startScreen
 	mCurrentScreen = NULL;
 	//Ensure the screen is set up
 	ChangeScreen(startScreen);
-	testInt = 0;
 }
 
 GameScreenManager::~GameScreenManager()
@@ -32,7 +35,6 @@ void GameScreenManager::Render()
 void GameScreenManager::Update(float deltaTime, SDL_Event e)
 {
 	mCurrentScreen->Update(deltaTime, e);
-	dynamic_cast<GameScreenLevel0*>(tempScreen0)->boolTest();
 }
 
 void GameScreenManager::ChangeScreen(SCREENS newScreen)
@@ -51,25 +53,26 @@ void GameScreenManager::ChangeScreen(SCREENS newScreen)
 		tempScreenMenu = NULL;
 		break;
 	case SCREEN_LEVEL0:
-		tempScreen0 = new GameScreenLevel0(mRenderer);
+		tempScreen0 = new GameScreenLevel0(mRenderer, this);
 		mCurrentScreen = (GameScreen*)tempScreen0;
 		tempScreen0 = NULL;
 		break;
 	case SCREEN_LEVEL1:
-		tempScreen1 = new GameScreenLevel1(mRenderer);
+		tempScreen1 = new GameScreenLevel1(mRenderer, this);
 		mCurrentScreen = (GameScreen*)tempScreen1;
 		tempScreen1 = NULL;
 		break;
 	case SCREEN_GAMEOVER:
+		tempGameOverScreen = new GameScreenGameOver(mRenderer, this);
+		mCurrentScreen = (GameScreen*)tempGameOverScreen;
+		tempGameOverScreen = NULL;
 		break;
-	case SCREEN_HIGHSCORES:
+	case SCREEN_VICTORY:
+		tempVictoryScreen = new GameScreenVictory(mRenderer, this);
+		mCurrentScreen = (GameScreen*)tempVictoryScreen;
+		tempVictoryScreen = NULL;
 		break;
 	default:
 		break;
 	}
-}
-
-void GameScreenManager::ChangeScreenTest()
-{
-	//Temp
 }

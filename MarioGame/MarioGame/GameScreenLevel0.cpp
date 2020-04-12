@@ -1,8 +1,6 @@
 #include "GameScreenLevel0.h"
-#include "QuestionBlock.h"
-#include "GameScreenManager.h"
 
-GameScreenLevel0::GameScreenLevel0(SDL_Renderer* renderer) : GameScreen(renderer)
+GameScreenLevel0::GameScreenLevel0(SDL_Renderer* renderer, GameScreenManager* screenManager) : GameScreen(renderer)
 {
 	SetUpLevel();
 	mLevelMap = NULL;
@@ -11,7 +9,7 @@ GameScreenLevel0::GameScreenLevel0(SDL_Renderer* renderer) : GameScreen(renderer
 	doPipeTransition = false;
 	isMarioDead = false;
 	isLuigiDead = false;
-
+	gameScreenManager = screenManager;
 	
 }
 
@@ -74,7 +72,8 @@ void GameScreenLevel0::Update(float deltaTime, SDL_Event e)
 
 	if (isMarioDead == true && isLuigiDead == true)
 	{
-		cout << "CHANGE TO GAME OVER SCREEN" << endl;
+		gameScreenManager->ChangeScreen(SCREENS(SCREEN_GAMEOVER));
+		return;
 	}
 
 	if (myCharacter1->GetPosition().x >= 430 && myCharacter1->GetPosition().x <= 450 && myCharacter1->GetPosition().y >= 270 || myCharacter2->GetPosition().x >= 430 && myCharacter2->GetPosition().x <= 450 && myCharacter2->GetPosition().y >= 270)
@@ -344,13 +343,6 @@ void GameScreenLevel0::PipeLevelChange(float deltaTime)
 		myCharacter1->SetPosition(Vector2D(64, 330));
 		myCharacter2->SetPosition(Vector2D(32, 330));
 
-		//Change screen somehow
-		cout << "SCREEN CHANGE" << endl;
-		gameScreenManagerTest->ChangeScreenTest();
+		gameScreenManager->ChangeScreen(SCREENS(SCREEN_LEVEL1));
 	}
-}
-
-bool GameScreenLevel0::boolTest()
-{
-	return true;
 }

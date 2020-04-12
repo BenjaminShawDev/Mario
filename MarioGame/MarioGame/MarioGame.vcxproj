@@ -136,10 +136,12 @@
     <ClCompile Include="Coins.cpp" />
     <ClCompile Include="Collisions.cpp" />
     <ClCompile Include="GameScreen.cpp" />
+    <ClCompile Include="GameScreenGameOver.cpp" />
     <ClCompile Include="GameScreenLevel0.cpp" />
     <ClCompile Include="GameScreenLevel1.cpp" />
     <ClCompile Include="GameScreenManager.cpp" />
     <ClCompile Include="GameScreenMenu.cpp" />
+    <ClCompile Include="GameScreenVictory.cpp" />
     <ClCompile Include="LevelMap.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="PowBlock.cpp" />
@@ -163,10 +165,12 @@
     <ClInclude Include="Commons.h" />
     <ClInclude Include="Constants.h" />
     <ClInclude Include="GameScreen.h" />
+    <ClInclude Include="GameScreenGameOver.h" />
     <ClInclude Include="GameScreenLevel0.h" />
     <ClInclude Include="GameScreenLevel1.h" />
     <ClInclude Include="GameScreenManager.h" />
     <ClInclude Include="GameScreenMenu.h" />
+    <ClInclude Include="GameScreenVictory.h" />
     <ClInclude Include="LevelMap.h" />
     <ClInclude Include="PowBlock.h" />
     <ClInclude Include="QuestionBlock.h" />

@@ -166,8 +166,8 @@ bool Update()
 		case SDLK_RETURN:
 			gameScreenManager->ChangeScreen(SCREENS(SCREEN_LEVEL0));
 			break;
-		case SDLK_1:
-			gameScreenManager->ChangeScreen(SCREENS(SCREEN_LEVEL1));
+		case SDLK_ESCAPE:
+			exit(0);
 			break;
 		}
 	}

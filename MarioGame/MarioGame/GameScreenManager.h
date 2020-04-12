@@ -6,22 +6,19 @@
 #include "Commons.h"
 
 class GameScreen;
-//class GameScreenLevel0;
 
 class GameScreenManager
 {
 private:
 	SDL_Renderer* mRenderer;
 	GameScreen* mCurrentScreen;
-
-	int testInt;
+	GameScreenManager* gameScreenManager;
 public:
 	GameScreenManager(SDL_Renderer* renderer, SCREENS startScreen);
 	~GameScreenManager();
 	void Render();
 	void Update(float deltaTime, SDL_Event e);
 	void ChangeScreen(SCREENS newScreen);
-	void ChangeScreenTest();
 };
 
 #endif // !_GAMESCREENMANAGER_H

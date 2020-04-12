@@ -1,1 +1,14 @@
-﻿  MarioGame.vcxproj -> C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\Debug\MarioGame.exe
+﻿  CharacterMario.cpp
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.h(42,110): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.h(42,87): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\PowBlock.h(10,115): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+  Source.cpp
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\PowBlock.h(10,92): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.h(42,110): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\Character.h(42,87): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\PowBlock.h(10,115): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\PowBlock.h(10,92): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\QuestionBlock.h(11,118): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
+C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\MarioGame\QuestionBlock.h(11,92): warning C4244:  'argument': conversion from 'int' to 'float', possible loss of data
+  MarioGame.vcxproj -> C:\Users\Ben\OneDrive - Staffordshire University\GEC\Semester2\MarioGame\Debug\MarioGame.exe

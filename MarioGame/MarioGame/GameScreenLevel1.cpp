@@ -1,15 +1,12 @@
 #include "GameScreenLevel1.h"
-#include <iostream>
-#include "Texture2D.h"
-#include "PowBlock.h"
-#include "GameScreenManager.h"
 
-GameScreenLevel1::GameScreenLevel1(SDL_Renderer* renderer) : GameScreen(renderer)
+GameScreenLevel1::GameScreenLevel1(SDL_Renderer* renderer, GameScreenManager* screenManager) : GameScreen(renderer)
 {
 	SetUpLevel();
 	mLevelMap = NULL;
 	isMarioDead = false;
 	isLuigiDead = false;
+	gameScreenManager = screenManager;
 }
 
 GameScreenLevel1::~GameScreenLevel1()
@@ -67,6 +64,8 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e)
 	if (isMarioDead == true && isLuigiDead == true)
 	{
 		cout << "CHANGE TO GAME OVER SCREEN" << endl;
+		gameScreenManager->ChangeScreen(SCREENS(SCREEN_GAMEOVER));
+		return;
 	}
 
 	if (mScreenShake)
@@ -84,8 +83,6 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e)
 		}
 	}
 
-	//if (Collisions::Instance()->Circle(myCharacter1, myCharacter2))
-			//Update the player
 	myCharacter1->Update(deltaTime, e);
 	myCharacter2->Update(deltaTime, e);
 
@@ -97,6 +94,7 @@ void GameScreenLevel1::Update(float deltaTime, SDL_Event e)
 	if (coinsCollected == 13)
 	{
 		cout << "YOU WIN!" << endl;
+		gameScreenManager->ChangeScreen(SCREENS(SCREEN_VICTORY));
 	}
 }
 

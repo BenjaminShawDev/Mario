@@ -10,8 +10,8 @@ Texture2D::Texture2D(SDL_Renderer* renderer)
 {
 	mRenderer = renderer;
 
-	mWidth;
-	mHeight;
+	mWidth = 0;
+	mHeight = 0;
 }
 
 Texture2D::~Texture2D()
